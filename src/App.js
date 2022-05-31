@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+//@ts-check
+import ListadoContainer from './components/ListadoContainer';
+import NavBar from './components/NavBar';
+import Saludar from './components/Saludar';
 import './App.css';
 
+import { useState } from 'react';
+import Test from './components/Test';
 function App() {
+  const [estaMontado, setEstaMontado] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {estaMontado ? <Test desde={0} /> : 'DISMOUNT!!!!'}
+      <button
+        onClick={() => {
+          setEstaMontado(false);
+        }}
+      >
+        SACAR A TEST
+      </button>
+
+      <button
+        onClick={() => {
+          setEstaMontado(true);
+        }}
+      >
+        MOSTRAR A TEST
+      </button>
+
+      {/* <div>
+      <NavBar />
+      dfsdf
+    </div> */}
+    </>
   );
 }
-
 export default App;
