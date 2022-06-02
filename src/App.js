@@ -6,11 +6,13 @@ import './App.css';
 
 import { useState } from 'react';
 import Test from './components/Test';
+import TestPromesas from './components/TestPromesas';
 function App() {
   const [estaMontado, setEstaMontado] = useState(true);
   return (
     <>
-      {estaMontado ? <Test desde={0} /> : 'DISMOUNT!!!!'}
+      <TestPromesas />
+      {/* {estaMontado ? <Test desde={0} /> : 'DISMOUNT!!!!'}
       <button
         onClick={() => {
           setEstaMontado(false);
@@ -25,7 +27,7 @@ function App() {
         }}
       >
         MOSTRAR A TEST
-      </button>
+      </button> */}
 
       {/* <div>
       <NavBar />
