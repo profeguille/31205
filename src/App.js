@@ -1,5 +1,5 @@
 //@ts-check
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import './App.css';
 import TestApi from './components/TestApi';
 import TestPromesas from './components/TestPromesas';
@@ -10,31 +10,32 @@ import TestProducto from './components/TestProducto';
 import TestCategoria from './components/TestCategoria';
 import TestEventos from './components/TestEventos';
 import ItemDetail from './components/ItemDetail';
+import CartContext from './context/CartContext';
 
-function App() {
+export default function App() {
   function handleClickApp() {
-    //alert('click en la APP');
+    alert('click en la APP');
   }
 
-  let item = { id: 100, nombre: 'pelota nike', stock: 100, precio: 50 };
   return (
     <>
-      <ItemDetail item={item} />
-      {/* <div onClick={handleClickApp}>
-        <BrowserRouter>
-          NAVBAR
-          <Routes>
-            <Route path="/testeventos" element={<TestEventos />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/contacto" element={<Contacto />} />
-            <Route path="/producto/:id" element={<TestProducto />} />
-            <Route path="/categoria/:id" element={<TestCategoria />} />
-          </Routes>
-          FOOTER
-        </BrowserRouter>
-      </div> */}
+      <CartContext>
+        {/* <ItemDetail item={item} /> */}
+        <div onClick={handleClickApp}>
+          <BrowserRouter>
+            NAVBAR
+            <Routes>
+              <Route path="/testeventos" element={<TestEventos />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/contacto" element={<Contacto />} />
+              <Route path="/producto/:id" element={<TestProducto />} />
+              <Route path="/categoria/:id" element={<TestCategoria />} />
+            </Routes>
+            FOOTER
+          </BrowserRouter>
+        </div>
+      </CartContext>
     </>
   );
 }
-export default App;

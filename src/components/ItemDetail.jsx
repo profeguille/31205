@@ -13,7 +13,7 @@ export default function ItemDetail({ item }) {
   return (
     <div>
       {JSON.stringify(item)}
-      {mostarItemCount ? <ItemCount onAdd={onAdd} stock={100} inicial={20} /> : <>finalizar</>}
+      {/* {mostarItemCount ? <ItemCount onAdd={onAdd} stock={100} inicial={20} /> : <>finalizar</>} */}
     </div>
   );
 }
